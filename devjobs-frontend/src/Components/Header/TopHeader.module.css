@@ -1,0 +1,7 @@
+.headerImage {
+    background-image: url('../../assets/bg-pattern-header.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+    min-height: 160px;
+    min-width: 1440px;
+  }
