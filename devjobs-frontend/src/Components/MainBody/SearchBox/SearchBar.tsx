@@ -14,20 +14,20 @@ const SearchBar = () => {
                             _placeholder={{opacity: 0.6}}
                             width={550}
                             bgColor={'white'}
-                            fontFamily={'Kumbh Sans'}
-                            fontSize={16}
+                            fontFamily={'Kumbh Sans, sans-serif'}
+                            fontSize={14}
                             borderLeftRadius={6}
                             borderRightRadius={0}
                             border={'none'}
                             />
                         <Input bgSize={'17px 24px'} bgImage={LocationIcon} bgPosition={'35px 28px'} 
                             padding={'37px 72px'} bgRepeat='no-repeat'
-                            placeholder='Filter by location'
+                            placeholder='Filter by location...'
                             _placeholder={{opacity: 0.6}}
                             width={450}
                             bgColor={'white'}
-                            fontFamily={'Kumbh Sans'}
-                            fontSize={16}
+                            fontFamily={'Kumbh Sans, sans-serif'}
+                            fontSize={14}
                             borderLeftRadius={0}
                             borderRightRadius={0}
                             borderTop={'none'}
@@ -39,7 +39,7 @@ const SearchBar = () => {
                             paddingLeft={'30'}
                             borderLeftRadius={0}
                             height={75}
-                            fontFamily={'Kumbh Sans'}
+                            fontFamily={'Kumbh Sans, sans-serif'}
                             color={'#19202D'}
                             fontWeight={600}>
                                 Full Time Only
@@ -47,7 +47,8 @@ const SearchBar = () => {
                                     marginLeft={30} 
                                     bgColor={'#5964E0'} 
                                     color={'white'}
-                                    fontFamily={'Kumbh Sans'}
+                                    fontSize={14}
+                                    fontFamily={'Manrope, sans-serif'}
                                     _hover={{bgColor: '#939BF4', borderColor: '#939BF4'}}>
                                         Search
                                 </Button>
