@@ -203,3 +203,215 @@ INSERT INTO ROLES (RolesID, Content, RolesList) VALUES (
 'In this role, you are part of our Product team comprised of Frontend & Backend Developers, UX & UI Specialists and Product Owners. You will work on mission critical projects from the first day on, support other engineers, share your knowledge with your colleagues, and contribute to agile projects.',
 'Help define our software engineering culture.Write high quality software for the frontend.Do code reviews.Proactively solve the problems most important to the business.'
 )
+
+
+INSERT INTO DevJobs (Company_ID, Company_Name, Position, PostedAt, Job_Contract, Job_Location, Job_Link, Apply_Link, Job_Description, RequirementID, RolesID) VALUES (
+1,
+'Scoot',
+'Senior Software Engineer',
+'5h ago',
+'Full Time',
+'United Kingdom',
+'/scoot',
+'/scoot/apply',
+'Scoot is looking for a Senior Software Engineer passionate about building approachable, innovative and user-first experiences to join our small but growing Engineering team. You will be responsible for building and maintaining front end functionality across all of Scoot’s applications, fostering a growing team of software engineers, and helping drive and maintain best software patterns and practices in our codebase.',
+1,
+1
+)
+
+INSERT INTO DevJobs (Company_ID, Company_Name, Position, PostedAt, Job_Contract, Job_Location, Job_Link, Apply_Link, Job_Description, RequirementID, RolesID) VALUES (
+2,
+'Blogr',
+'Haskell and PureScript Dev',
+'20h ago',
+'Part Time',
+'United States',
+'/blogr',
+'/blogr/apply',
+'Blogr is looking for a part-time developer to join our six-strong team of full-stack engineers. Our core development values are strong, static typing and correctness, rigorous automation (in both testing and infrastructure) and everyone having a say.',
+2,
+2
+)
+
+INSERT INTO DevJobs (Company_ID, Company_Name, Position, PostedAt, Job_Contract, Job_Location, Job_Link, Apply_Link, Job_Description, RequirementID, RolesID) VALUES (
+3,
+'Vector',
+'Midlevel Back End Engineer',
+'1d ago',
+'Part Time',
+'Russia',
+'/vector',
+'/vector/apply',
+'We are looking for a Mid-level Back End Engineer to join our growing software engineering organization. The right person will help move our platform to the next level. You’ll be working as part of a skilled, collaborative team to jointly design and implement high visibility applications.',
+3,
+3
+)
+
+INSERT INTO DevJobs (Company_ID, Company_Name, Position, PostedAt, Job_Contract, Job_Location, Job_Link, Apply_Link, Job_Description, RequirementID, RolesID) VALUES (
+4,
+'Office Lite',
+'Senior Application Engineer',
+'2d ago',
+'Full Time',
+'Japan',
+'/officelite',
+'/officelite/apply',
+'Office Lite is seeking a talented and enthusiastic Senior Application Engineer whose primary responsibility is software architecture and development for Office Lite systems. Additional responsibilities include participation in project time/task estimation, code and architecture reviews, providing support for junior developers, documentation of system architecture and a supporting role for all phases of the development life-cycle (project definition, process mapping, architecture, coding, acceptance testing, installation, turnover to support, etc.).',
+4,
+4
+)
+
+INSERT INTO DevJobs (Company_ID, Company_Name, Position, PostedAt, Job_Contract, Job_Location, Job_Link, Apply_Link, Job_Description, RequirementID, RolesID) VALUES (
+5,
+'Pod',
+'Remote DevOps Engineer',
+'2d ago',
+'Part Time',
+'Japan',
+'/pod',
+'/pod/apply',
+'Join our dynamic team in developing Pod’s core products and supporting infrastructure. Our software is currently written in Java, VB.Net, React Native, React JS and others. You will help lead new initiatives to build and improve the testing, staging and deployment solutions. You will interact with all development teams, development leadership and our hosting/IT staff to define requirements and goals for the Dev Ops Platform.',
+5,
+5
+)
+
+INSERT INTO DevJobs (Company_ID, Company_Name, Position, PostedAt, Job_Contract, Job_Location, Job_Link, Apply_Link, Job_Description, RequirementID, RolesID) VALUES (
+6,
+'Creative',
+'Desktop Support Manager',
+'4d ago',
+'Part Time',
+'Germany',
+'/creative',
+'/creative/apply',
+'Creative is seeking a Desktop Support Manager responsible for managing and leading a high-performance team in a dynamic environment. The ideal candidate should have management experience, a strong technical skillset, exceptional client service skills and enjoy mentoring a team.',
+6,
+6
+)
+
+INSERT INTO DevJobs (Company_ID, Company_Name, Position, PostedAt, Job_Contract, Job_Location, Job_Link, Apply_Link, Job_Description, RequirementID, RolesID) VALUES (
+7,
+'Pomodoro',
+'iOS Engineer',
+'1w ago',
+'Full Time',
+'United States',
+'/pomodoro',
+'/pomodoro/apply',
+'We are looking for thoughtful, well-rounded iOS engineer to join our team. We’re looking for someone to help build out the foundation of the app and infrastructure. If you are interested in taking part in building an application that millions of people use every day to increase their productivity, this is the perfect opportunity. You will play an important part in our mobile engineering practice, implementing new features, improving performance, and building beautiful user interfaces.',
+7,
+7
+)
+
+INSERT INTO DevJobs (Company_ID, Company_Name, Position, PostedAt, Job_Contract, Job_Location, Job_Link, Apply_Link, Job_Description, RequirementID, RolesID) VALUES (
+8,
+'Maker',
+'Senior EJB Developer',
+'1w ago',
+'Full Time',
+'United Kingdom',
+'/maker',
+'/maker/apply',
+'We are seeking an experienced EJB Developer who will join our fast-growing engineering team, working on mission-critical applications. Searching for a Senior Java Developer who thrives on working with enterprises in multiple industries with unique business challenges requiring sophisticated solution design.',
+8,
+8
+)
+
+INSERT INTO DevJobs (Company_ID, Company_Name, Position, PostedAt, Job_Contract, Job_Location, Job_Link, Apply_Link, Job_Description, RequirementID, RolesID) VALUES (
+9,
+'Coffeeroasters',
+'Senior Frontend Developer',
+'1w ago',
+'Part Time',
+'Singapore',
+'/coffeeroasters',
+'/coffeeroasters/apply',
+'We’re looking for an experienced Frontend Developer with an eye for Product Design along with a honed set of coding skills and who shares our values around technology. Most importantly, we’d like someone who is collaborative and can work closely with the rest of our team shaping product.',
+9,
+9
+)
+
+INSERT INTO DevJobs (Company_ID, Company_Name, Position, PostedAt, Job_Contract, Job_Location, Job_Link, Apply_Link, Job_Description, RequirementID, RolesID) VALUES (
+10,
+'Mastercraft',
+'App & Website Designer',
+'2w ago',
+'Freelance',
+'United States',
+'/mastercraft',
+'/mastercraft/apply',
+'Mastercraft is looking for a UX/UI Designer to turn our software into easy-to-use products for our clients. Responsibilities include gathering user requirements, designing graphic elements and building software component.',
+10,
+10
+)
+
+INSERT INTO DevJobs (Company_ID, Company_Name, Position, PostedAt, Job_Contract, Job_Location, Job_Link, Apply_Link, Job_Description, RequirementID, RolesID) VALUES (
+11,
+'Crowdfund',
+'Fullstack Developer',
+'1mo ago',
+'Part Time',
+'New Zealand',
+'/crowdfund',
+'/crowdfund/apply',
+'Crowdfund is currently expanding and working on revolutionizing the world of raising funds for any project – creative, entrepreneurial or cause-related. Come and join us in this growth! We are looking for an exceptionally talented Fullstack Developer who will become an integral part of the company’s exciting new chapter.',
+11,
+11
+)
+
+INSERT INTO DevJobs (Company_ID, Company_Name, Position, PostedAt, Job_Contract, Job_Location, Job_Link, Apply_Link, Job_Description, RequirementID, RolesID) VALUES (
+12,
+'Typemaster',
+'Technical Lead Engineer',
+'1mo ago',
+'Part Time',
+'United Kingdom',
+'/typemaster',
+'/typemaster/apply',
+'We are looking for a talented tech lead to join a team that creates large-scale, highly-performant web applications. This team creates highly visible and responsive user interfaces used by millions of people.',
+12,
+12
+)
+
+INSERT INTO DevJobs (Company_ID, Company_Name, Position, PostedAt, Job_Contract, Job_Location, Job_Link, Apply_Link, Job_Description, RequirementID, RolesID) VALUES (
+13,
+'Crowdfund',
+'Front-end Developer',
+'1mo ago',
+'Full Time',
+'New Zealand',
+'/crowdfund',
+'/crowdfund/apply',
+'We’re hiring a Front-end Developer to help create the front-end experience for Crowdfund’s management interface. As our ideal candidate, you’re an adept user of the front-end stack (React, Yarn, webpack, Babel, SCSS, JSX, GraphQL) and an avid learner of new frameworks. You enjoy building excellent user experiences as well as reusable components that other developers can use to solve similar problems. You love open-source and being part of a thriving developer community and understand that strong businesses enable great enduring communities.',
+13,
+13
+)
+
+
+INSERT INTO DevJobs (Company_ID, Company_Name, Position, PostedAt, Job_Contract, Job_Location, Job_Link, Apply_Link, Job_Description, RequirementID, RolesID) VALUES (
+14,
+'Coffeeroasters',
+'Junior Full-Stack Developer',
+'1mo ago',
+'Full Time',
+'Singapore',
+'/coffeeroasters',
+'/coffeeroasters/apply',
+'We’re looking for a Junior Full-Stack Developer to join our Product and Engineering team. This is an exciting opportunity to work on building our core web application.',
+14,
+14
+)
+
+INSERT INTO DevJobs (Company_ID, Company_Name, Position, PostedAt, Job_Contract, Job_Location, Job_Link, Apply_Link, Job_Description, RequirementID, RolesID) VALUES (
+15,
+'Blogr',
+'Midweight Front-end Developer',
+'1mo ago',
+'Full Time',
+'United States',
+'/blogr',
+'/blogr/apply',
+'We’re looking for a Frontend Developer who values user experience, performance and accessibility. Through our enduring interest in how people use our products, Blogr embraces a model of software development that is iterative and gradual. Like high-performance engines, our products are built through a process of continuous refinement (usually on two week release cycles). We’re looking for someone who is comfortable embodying this approach.',
+15,
+15
+)
