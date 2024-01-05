@@ -2,7 +2,22 @@ import { Container, Stack, InputGroup, Input, Checkbox, Button } from '@chakra-u
 import SearchIcon from '../../../assets/icon-search.svg'
 import LocationIcon from '../../../assets/icon-location.svg'
 
-const SearchBar = () => {
+interface SearchBarProps {
+    setFilterTitle: Function;
+    setFilterLocation: Function;
+}
+
+
+const SearchBar: React.FC<SearchBarProps> = ({setFilterTitle, setFilterLocation}) => {
+    
+    const filterTitleChanges = (e: React.ChangeEvent<HTMLInputElement>) => {
+        setFilterTitle(e.target.value);
+    }
+
+    const filterLocationChanges = (e: React.ChangeEvent<HTMLInputElement>) => {
+        setFilterLocation(e.target.value);
+    }
+    
     return(
         <div>
             <Container maxW={'1145px'}>
@@ -19,6 +34,7 @@ const SearchBar = () => {
                             borderLeftRadius={6}
                             borderRightRadius={0}
                             border={'none'}
+                            onChange={filterTitleChanges}
                             />
                         <Input bgSize={'17px 24px'} bgImage={LocationIcon} bgPosition={'35px 28px'} 
                             padding={'37px 72px'} bgRepeat='no-repeat'
@@ -32,6 +48,7 @@ const SearchBar = () => {
                             borderRightRadius={0}
                             borderTop={'none'}
                             borderBottom={'none'}
+                            onChange={filterLocationChanges}
                             />
                         <Checkbox 
                             backgroundColor={'white'}
