@@ -4,6 +4,7 @@ import MainBodySection from './MainBody/MainBody/MainBodySection'
 
 import classes from './Layout.module.css'
 import { useState } from 'react'
+import { Routes, Route } from 'react-router-dom'
 
 const Layout = () => {
     
@@ -14,8 +15,13 @@ const Layout = () => {
     return(
         <div className={classes.Layout}>
             <TopHeader />
-            <SearchBar setFilterLocation={setFilterLocation} setFilterTitle={setFilterTitle}/>
-            <MainBodySection filterLocation={filterLocation} filterTitle={filterTitle}/>
+            <SearchBar setFilterPosition={setFilterPosition} setFilterLocation={setFilterLocation} setFilterTitle={setFilterTitle}/>
+            
+            <Routes>
+                <Route path="/" element={<MainBodySection filterPosition={filterPosition} filterLocation={filterLocation} filterTitle={filterTitle}/>}/>
+            </Routes>
+            
+            
         </div>
     )
 }

@@ -5,10 +5,11 @@ import LocationIcon from '../../../assets/icon-location.svg'
 interface SearchBarProps {
     setFilterTitle: Function;
     setFilterLocation: Function;
+    setFilterPosition: Function;
 }
 
 
-const SearchBar: React.FC<SearchBarProps> = ({setFilterTitle, setFilterLocation}) => {
+const SearchBar: React.FC<SearchBarProps> = ({setFilterTitle, setFilterLocation, setFilterPosition}) => {
     
     const filterTitleChanges = (e: React.ChangeEvent<HTMLInputElement>) => {
         setFilterTitle(e.target.value);
@@ -16,6 +17,10 @@ const SearchBar: React.FC<SearchBarProps> = ({setFilterTitle, setFilterLocation}
 
     const filterLocationChanges = (e: React.ChangeEvent<HTMLInputElement>) => {
         setFilterLocation(e.target.value);
+    }
+
+    const filterPositionChanges = (e: React.ChangeEvent<HTMLInputElement>) => {
+        setFilterPosition(e.target.checked)
     }
     
     return(
@@ -35,6 +40,7 @@ const SearchBar: React.FC<SearchBarProps> = ({setFilterTitle, setFilterLocation}
                             borderRightRadius={0}
                             border={'none'}
                             onChange={filterTitleChanges}
+                            cursor={'pointer'}
                             />
                         <Input bgSize={'17px 24px'} bgImage={LocationIcon} bgPosition={'35px 28px'} 
                             padding={'37px 72px'} bgRepeat='no-repeat'
@@ -48,6 +54,7 @@ const SearchBar: React.FC<SearchBarProps> = ({setFilterTitle, setFilterLocation}
                             borderRightRadius={0}
                             borderTop={'none'}
                             borderBottom={'none'}
+                            cursor={'pointer'}
                             onChange={filterLocationChanges}
                             />
                         <Checkbox 
@@ -58,9 +65,11 @@ const SearchBar: React.FC<SearchBarProps> = ({setFilterTitle, setFilterLocation}
                             height={75}
                             fontFamily={'Kumbh Sans, sans-serif'}
                             color={'#19202D'}
-                            fontWeight={600}>
+                            fontWeight={600}
+                            cursor={'pointer'}
+                            onChange={filterPositionChanges}>
                                 Full Time Only
-                                <Button 
+                                {/* <Button 
                                     marginLeft={30} 
                                     bgColor={'#5964E0'} 
                                     color={'white'}
@@ -68,7 +77,7 @@ const SearchBar: React.FC<SearchBarProps> = ({setFilterTitle, setFilterLocation}
                                     fontFamily={'Manrope, sans-serif'}
                                     _hover={{bgColor: '#939BF4', borderColor: '#939BF4'}}>
                                         Search
-                                </Button>
+                                </Button> */}
                         </Checkbox>  
                     </InputGroup>
                 </Stack>
