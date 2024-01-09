@@ -1,0 +1,30 @@
+.orderedList {
+    list-style: none !important;
+    counter-reset: li;
+    margin-top: 20px;
+}
+
+.orderedList li::before {
+    content: counter(li);
+    color: #5964E0;
+    display: inline-block;
+    width: 2em;
+    margin-left: 1px;
+}
+
+.orderedList li {
+    counter-increment: li;
+    font-size: 15px;
+    font-family: 'Manrope';
+    color: #6E8098;
+    margin-top: 30px;
+
+    /* list-style-position: inside;
+    padding: 0px 0 0px 8px;
+    text-indent: -5px; */
+}
+
+/* ------ */
+
+
+/* fontSize={15} fontFamily={'Manrope, sans-serif'} color={'#6E8098'} py={2} mt={'10px'} */

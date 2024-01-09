@@ -1,6 +1,7 @@
 import TopHeader from './Header/TopHeader'
 import SearchBar from './MainBody/SearchBox/SearchBar'
 import MainBodySection from './MainBody/MainBody/MainBodySection'
+import JobPostingDetailsLayout from './MainBody/JobPostingDetails/JobPostingDetailsLayout'
 
 import classes from './Layout.module.css'
 import { useState } from 'react'
@@ -15,11 +16,11 @@ const Layout = () => {
     return(
         <div className={classes.Layout}>
             <TopHeader />
-            <SearchBar setFilterPosition={setFilterPosition} setFilterLocation={setFilterLocation} setFilterTitle={setFilterTitle}/>
+            <JobPostingDetailsLayout />
             
-            <Routes>
-                <Route path="/" element={<MainBodySection filterPosition={filterPosition} filterLocation={filterLocation} filterTitle={filterTitle}/>}/>
-            </Routes>
+            {/* <Routes>
+                <Route path="/" element={<><SearchBar setFilterPosition={setFilterPosition} setFilterLocation={setFilterLocation} setFilterTitle={setFilterTitle}/><MainBodySection filterPosition={filterPosition} filterLocation={filterLocation} filterTitle={filterTitle}/></>}/>
+            </Routes> */}
             
             
         </div>
