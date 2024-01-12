@@ -1,4 +1,5 @@
 import { Image, Card, CardBody, CardFooter, Text } from "@chakra-ui/react"
+import { Link } from 'react-router-dom';
 
 import ScootLogo from '../../../logos/scoot.svg'
 import BlogrLogo from '../../../logos/blogr.svg'
@@ -11,7 +12,7 @@ import OfficeLiteLogo from '../../../logos/officelite.svg'
 import PodLogo from '../../../logos/pod.svg'
 import PomodoroLogo from '../../../logos/pomodoro.svg'
 import TypemasterLogo from '../../../logos/typemaster.svg'
-import VectorLogo from '../../../logos/vector.svg'
+import VectorLogo from '../../../logos/vector.svg' 
 
 
 interface Props {
@@ -68,11 +69,11 @@ const JobPostingCard: React.FC<Props> = ({theData}) => {
                     {theData.PostedAt} - {theData.Job_Contract}
                 </Text>
 
-                <a href="#">
+                <Link to={`/${theData.Company_ID}/posting`}>
                 <Text fontFamily={'Kumbh Sans, sans-serif'} fontWeight={600} fontSize={20} color={'#19202D'} py={1}>
                     {theData.Position}
                 </Text>
-                </a> 
+                </Link> 
                 
                 <Text fontSize={14} fontFamily={'Manrope, sans-serif'} color={'#6E8098'} py={1}>
                     {theData.Company_Name}
@@ -84,6 +85,7 @@ const JobPostingCard: React.FC<Props> = ({theData}) => {
                 </Text>
             </CardFooter>
         </Card>
+        
     )
 }
 

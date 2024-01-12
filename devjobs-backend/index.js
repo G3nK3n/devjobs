@@ -29,7 +29,7 @@ app.get('/', function (req, res) {
 
         var request = new sql.Request();
 
-        request.query('select * from dbo.Devjobs', function (err, recordset) {
+        request.query('select * from dbo.Devjobs, dbo.Roles, dbo.Requirements where dbo.Devjobs.RequirementID = dbo.Requirements.RequirementID and dbo.Devjobs.RolesID = dbo.Roles.RolesID', function (err, recordset) {
             if (err) console.log(err)
             else {
                 res.json({recordset});
@@ -38,6 +38,7 @@ app.get('/', function (req, res) {
         })
     })
 })
+
 
 app.listen(5000, function() {
     console.log('Server is running...');

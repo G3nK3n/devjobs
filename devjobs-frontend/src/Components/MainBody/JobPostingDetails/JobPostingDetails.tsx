@@ -6,8 +6,11 @@ import {
     OrderedList,
     UnorderedList,
   } from '@chakra-ui/react'
+import { useState, useEffect } from "react"
+import { useParams } from "react-router-dom"
 
-import classes from './JobPostingDetails.module.css';
+
+
 
 import ScootLogo from '../../../logos/scoot.svg'
 import BlogrLogo from '../../../logos/blogr.svg'
@@ -22,51 +25,116 @@ import PomodoroLogo from '../../../logos/pomodoro.svg'
 import TypemasterLogo from '../../../logos/typemaster.svg'
 import VectorLogo from '../../../logos/vector.svg'
 
-
+//If params is equal to the database data, then show specific data
+//Make a getRequest in thisd page and make a filter according to the parameters, which includes the companyID
 const JobPostingDetails = () => {
-    
-    const tempText = '5+ years of industry experience in a software engineering role, preferably building a SaaS product.You can demonstrate significant impact that your work has had on the product and/or the team.Experience with scalable distributed systems, both built from scratch as well as on AWS primitives.Extremely data-driven.Ability to debug complex systems.';
-    const tempText2 = 'This role is for someone who is excited about the early stage - you will be responsible for turning the platform vision into reality through smart, efficient building and testing.Translate the product roadmap into engineering requirements and own the engineering roadmap.Work with limited resources to test and learn as efficiently as possible, while laying the framework to build a more scalable product over time.Collaborate with product, design, and external engineering teammates as needed.';
 
-    const showRequirmentList = () => {
-        let tempArray = tempText.split('.').filter(x => x)
-        console.log("The array: " , tempArray)
-        return tempArray
+    const url = "http://localhost:5000/";
+    const [data, setData] = useState([]);
+    let {companyID} = useParams();
+
+    const getRequest = async () => {
+        try {
+            const response = await fetch(url, {
+                method: 'GET',
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            });
+
+            await response.json().then(theData => {
+                setData(theData.recordset.recordset)
+            });
+        } catch (err) {
+            console.log(err);
+        }
     }
 
-    const showRolesList = () => {
-        let tempArray = tempText2.split('.').filter(x => x)
-        return tempArray
+    useEffect(() => {
+        getRequest();
+    }, [])
+
+    const filteredData = (theData: any) => {
+
+        let theFilteredData;
+        
+        theFilteredData = theData.filter((items: any) => {
+
+            return items.Company_ID === Number(companyID)
+        })
+        return theFilteredData[0];
+    }
+
+    const showImages = () => { 
+        if(filteredData(data)?.Company_Name.includes('Scoot')) {
+            return(<Image boxShadow={'xl'} src={ScootLogo} bgColor={'#E99210'} padding={'58px 30px'} width="140px" height="140px"/>)
+        }
+        else if(filteredData(data)?.Company_Name.includes('Blogr')) {
+            return(<Image boxShadow={'xl'} src={BlogrLogo} bgColor={'#E54D25'} padding={'49px 30px'} width="140px" height="140px"/>)
+        }
+        else if(filteredData(data)?.Company_Name.includes('Vector')) {
+            return(<Image boxShadow={'xl'} src={VectorLogo} bgColor={'#34353F'} padding={'60px 15px'} width="140px" height="140px"/>)
+        }
+        else if(filteredData(data)?.Company_Name.includes('Office Lite')) {
+            return(<Image boxShadow={'xl'} src={OfficeLiteLogo} bgColor={'#5175FF'} padding={'58px 30px'} width="225px" height="156px"/>) 
+        }
+        else if(filteredData(data)?.Company_Name.includes('Pod')) {
+            return(<Image boxShadow={'xl'} src={PodLogo} bgColor={'#132034'} padding={'44px 30px'} width="140px" height="140px"/>)
+        }
+        else if(filteredData(data)?.Company_Name.includes('Creative')) {
+            return(<Image boxShadow={'xl'} src={CreativeLogo} bgColor={'#4E1853'} padding={'48px 30px'} width="140px" height="140px"/>)
+        }
+        else if(filteredData(data)?.Company_Name.includes('Pomodoro')) {
+            return(<Image boxShadow={'xl'} src={PomodoroLogo} bgColor={'#4722C6'} padding={'58px 30px'} width="140px" height="140px"/>)
+        }
+        else if(filteredData(data)?.Company_Name.includes('Maker')) {
+            return(<Image boxShadow={'xl'} src={MakerLogo} bgColor={'#21427D'} padding={'45px 30px'} width="140px" height="140px"/>)
+        }
+        else if(filteredData(data)?.Company_Name.includes('Coffeeroasters')) {
+            return(<Image boxShadow={'xl'} src={CoffeeRoastersLogo} bgColor={'#F2DECB'} padding={'49px 30px'} width="140px" height="140px"/>)
+        }
+        else if(filteredData(data)?.Company_Name.includes('Mastercraft')) {
+            return(<Image boxShadow={'xl'} src={MastercraftLogo} bgColor={'#1F1F1F'} padding={'47px 30px'} width="140px" height="140px"/>)
+        }
+        else if(filteredData(data)?.Company_Name.includes('Crowdfund')) {
+            return(<Image boxShadow={'xl'} src={CrowdFundLogo} bgColor={'#37C790'} padding={'58px 10px'} width="140px" height="140px"/>)
+        }
+        else if(filteredData(data)?.Company_Name.includes('Typemaster')) { 
+            return(<Image boxShadow={'xl'} src={TypemasterLogo} bgColor={'#F16718'} padding={'58px 30px'} width="140px" height="140px"/>) 
+        }
     }
 
     return(
-        <Box>
+        <Box marginTop={'-37px'}>
             <Container maxW={'730px'}>
                 {/* Top card */}
+
                 <Card direction={{ base: 'column', sm: 'row' }}>
-                <Image boxShadow={'xl'} src={ScootLogo} bgColor={'#E99210'} padding={'58px 30px'} width="140px" height="140px"/> 
+                    {showImages()} 
                     <Stack>
                         <CardBody ml='20px' mt='18px'>
-                            <Heading fontFamily={'Kumbh Sans, sans-serif'} fontSize={24} size='md'>Scoot</Heading>
-                            <Text fontSize={16} fontFamily={'Manrope, sans-serif'} color={'#6E8098'} py={2}>  
-                                scoot.com 
+                            <Heading fontFamily={'Kumbh Sans, sans-serif'} fontSize={24} size='md'>{filteredData(data)?.Company_Name}</Heading>
+                            <Text fontSize={16} fontFamily={'Manrope, sans-serif'} color={'#6E8098'} py={2}>
+                                {filteredData(data)?.Job_Link.split("/")[1] + '.com'} 
                             </Text>
-                            
                         </CardBody>
+                        
                     </Stack>
-                    <Box ml='200px' mt='50px'>
-                        <Button 
-                            marginLeft={30} 
-                            bgColor={'rgb(89, 100, 224, 0.1)'}
-                            color={'rgb(89, 100, 224)'} 
-                            fontSize={14} 
-                            fontWeight={600}  
-                            fontFamily={'Kumbh Sans, sans-serif'}
-                            _hover={{bgColor: '#939BF4', borderColor: '#939BF4'}}
-                            >
-                                Company Site  
-                        </Button>
-                    </Box> 
+                    <Box width={'100%'}>
+                        <Box position={'absolute'} right={'63px'} top={'50px'}> 
+                            <Button
+                                marginLeft={30}
+                                bgColor={'rgb(89, 100, 224, 0.1)'}
+                                color={'rgb(89, 100, 224)'}
+                                fontSize={14}
+                                fontWeight={600}
+                                fontFamily={'Kumbh Sans, sans-serif'}
+                                _hover={{bgColor: '#939BF4', borderColor: '#939BF4'}}
+                                >
+                                    Company Site
+                            </Button> 
+                        </Box> 
+                    </Box>
                 </Card>
 
                 {/* This is the main body section for the Job Details */}
@@ -74,42 +142,37 @@ const JobPostingDetails = () => {
                     <Stack>
                         <CardBody>
                             <Text fontSize={16} fontFamily={'Manrope, sans-serif'} color={'#6E8098'} py={2}>
-                                1w ago - Part Time
+                                {filteredData(data)?.PostedAt + " - " + filteredData(data)?.Job_Contract}
                             </Text>
-                            <Heading fontFamily={'Kumbh Sans, sans-serif'} fontSize={24} size='md'>Senior Software Engineer</Heading>
+                            <Heading fontFamily={'Kumbh Sans, sans-serif'} fontSize={24} size='md'>{filteredData(data)?.Position}</Heading>
                             <Text fontSize={14} fontWeight={700} fontFamily={'Kumbh Sans. sans-serif'} color={'#5964E0'} py={1}>
-                                United Kingdom
+                                {filteredData(data)?.Job_Location}
                             </Text>
                         </CardBody>
                     </Stack>
                     <Box ml='480px' mt='-80px'>
-                        <Button 
-                            marginLeft={30} 
-                            bgColor={'#5964E0'} 
+                        <Button
+                            marginLeft={30}
+                            bgColor={'#5964E0'}
                             color={'white'}
                             fontSize={14}
                             padding={'0px 26px'}
                             fontFamily={'Manrope, sans-serif'}
                             _hover={{bgColor: '#939BF4', borderColor: '#939BF4'}}>
-                                Apply Now 
+                                Apply Now
                         </Button>
                     </Box>
                     <CardBody>
                         <Text fontSize={16} fontFamily={'Manrope, sans-serif'} color={'#6E8098'} py={2} mt={'40px'}>
-                            Scoot is looking for a Senior Software Engineer passionate about building approachable, innovative and user-first experiences to join our small but
-                            growing Engineering team. You will be responsible for building and maintaining front end functionality across all of Scoot's applications, 
-                            fostering a growing team of software engineers, and helping drive and maintain best software patterns and practices in our codebase. 
+                            {filteredData(data)?.Job_Description}
                         </Text>
                         <Heading mt={'40px'} fontFamily={'Kumbh Sans, sans-serif'} fontSize={20} size='sm'>Requirements</Heading>
                         <Text fontSize={16} fontFamily={'Manrope, sans-serif'} color={'#6E8098'} py={2} mt={'20px'}>
-                            The ideal candidate is as passionate about solving challenges through technology. 
-                            They are well-versed in building proof of concepts from scratch and taking these POCs to production and scale. 
-                            The right fit will have the engineering experience to build and iterate quickly and is comfortable working with product 
-                            and design to set the technical strategy and roadmap. 
+                            {filteredData(data)?.Requirement_Content}
                         </Text>
                         <UnorderedList mt={'20px'}>
                         {
-                            showRequirmentList().map((items) => {
+                            filteredData(data)?.RequirementList.split(".").filter((x: any) => x).map((items: any) => {
                                 return(
                                     <ListItem fontSize={15} fontFamily={'Manrope, sans-serif'} color={'#6E8098'} py={2} mt={'10px'}>
                                         {items}
@@ -120,13 +183,11 @@ const JobPostingDetails = () => {
                         </UnorderedList>
                         <Heading mt={'40px'} fontFamily={'Kumbh Sans, sans-serif'} fontSize={20} size='sm'>What You Will Do</Heading>
                         <Text fontSize={16} fontFamily={'Manrope, sans-serif'} color={'#6E8098'} py={2} mt={'20px'}>
-                            We are looking for a Senior Software Engineer to join as one of our first hires. As we iterate on our MVP, you will have the opportunity 
-                            to drive the vision and own the build behind our digital experience. You'll have the support of an experienced technical advisor, a Head of Product, 
-                            and an external team to work with. 
+                            {filteredData(data)?.Roles_Content}
                         </Text>
                         <OrderedList mt={'20px'}>
                         {
-                            showRolesList().map((items) => {
+                            filteredData(data)?.RolesList.split(".").filter((x: any) => x).map((items: any) => {
                                 return(
                                     <ListItem fontSize={15} fontFamily={'Manrope, sans-serif'} color={'#6E8098'} py={2} mt={'10px'}>
                                         {items}
@@ -137,20 +198,22 @@ const JobPostingDetails = () => {
                         </OrderedList>
                     </CardBody>
                 </Card>
+
             </Container>
             <Card mt={'80px '} borderRadius={'0px'} direction={{ base: 'column', sm: 'row' }}>
                 <Container maxW={'730px'}>
                     <CardFooter padding={'0px'} paddingTop={'23px'} paddingBottom={'10px'}>
                         <Stack>
-                            <Heading fontFamily={'Kumbh Sans, sans-serif'} fontSize={20} size='sm'>Senior Software Engineer</Heading>
+                            <Heading fontFamily={'Kumbh Sans, sans-serif'} fontSize={20} size='sm'>{filteredData(data)?.Position}</Heading>
                             <Text fontSize={16} fontFamily={'Manrope, sans-serif'} color={'#6E8098'} py={1}>
-                                Scoot 
+                                {filteredData(data)?.Company_Name}
+
                             </Text>
                         </Stack>
                     <Box ml='230px' mt='7px'>
-                    <Button 
-                        marginLeft={30} 
-                        bgColor={'#5964E0'} 
+                    <Button
+                        marginLeft={30}
+                        bgColor={'#5964E0'}
                         color={'white'}
                         fontSize={14}
                         padding={'0px 26px'}
@@ -158,10 +221,11 @@ const JobPostingDetails = () => {
                         _hover={{bgColor: '#939BF4', borderColor: '#939BF4'}}>
                             Apply Now
                     </Button>
-                    </Box> 
+                    </Box>
                     </CardFooter>
                 </Container>
             </Card>
+
         </Box>
     )
 }

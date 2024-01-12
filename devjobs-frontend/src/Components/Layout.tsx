@@ -16,11 +16,12 @@ const Layout = () => {
     return(
         <div className={classes.Layout}>
             <TopHeader />
-            <JobPostingDetailsLayout />
+            {/* <JobPostingDetailsLayout /> */}
             
-            {/* <Routes>
+            <Routes>
                 <Route path="/" element={<><SearchBar setFilterPosition={setFilterPosition} setFilterLocation={setFilterLocation} setFilterTitle={setFilterTitle}/><MainBodySection filterPosition={filterPosition} filterLocation={filterLocation} filterTitle={filterTitle}/></>}/>
-            </Routes> */}
+                <Route path="/:companyID/posting" element={<JobPostingDetailsLayout />} />
+            </Routes>
             
             
         </div>

@@ -40,8 +40,6 @@ const MainBodySection: React.FC<MainBodyProps> = ({filterTitle, filterLocation, 
         
         let theFilteredData;
 
-        console.log("Is it checked: ", filterPosition)
-
         if(filterTitle.trim() != "" && filterLocation.trim() == "") {
             theFilteredData = theData.filter((items:any) => {
                 //Use this one for strings?
@@ -104,6 +102,7 @@ const MainBodySection: React.FC<MainBodyProps> = ({filterTitle, filterLocation, 
                     
                     {/* Returns the job postings according to the filtered data */}
                     {
+                        
                         filteredData(data).length > 0 && filteredData(data).slice(0, next)?.map((item: any) => {
                             return(
                                 <JobPostingCard key={item.Company_ID} theData={item} />
