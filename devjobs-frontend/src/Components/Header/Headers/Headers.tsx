@@ -1,14 +1,25 @@
 import Logo from '../../../assets/logo.svg'
-
 import { Box } from '@chakra-ui/react'
 import { Link } from 'react-router-dom';
+import ToggleColorMode from '../../Toggle Button/ToggleColorMode';
 
-const Headers = () => {
+import { FC } from 'react';
+
+
+const Headers: FC = () => {
+    
+    
     return(
         <Box paddingTop={10}>
-            <Link to={"/"}>
-                <img src={Logo} />
-            </Link>
+            <Box>
+                <Link to={"/"}>
+                    <img src={Logo}/>
+                </Link>
+                <Box float={'right'} top={'-50px'} position={'relative'}>
+                    <ToggleColorMode/>
+                </Box>
+            </Box>
+            
         </Box>
     )
 }

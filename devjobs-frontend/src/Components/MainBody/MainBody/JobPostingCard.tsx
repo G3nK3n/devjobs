@@ -1,5 +1,6 @@
-import { Image, Card, CardBody, CardFooter, Text } from "@chakra-ui/react"
+import { Image, Card, CardBody, CardFooter, Text, useColorMode, useColorModeValue } from "@chakra-ui/react"
 import { Link } from 'react-router-dom';
+
 
 import ScootLogo from '../../../logos/scoot.svg'
 import BlogrLogo from '../../../logos/blogr.svg'
@@ -21,6 +22,10 @@ interface Props {
 
 const JobPostingCard: React.FC<Props> = ({theData}) => {
     
+    //const {toggleColorMode} = useColorMode()
+    const headingColor = useColorModeValue('#19202D', 'white');
+
+
     const showImages = () => {
         if(theData.Company_Name === 'Scoot') {
             return(<Image boxShadow={'xl'} src={ScootLogo} bgColor={'#E99210'} padding={'20px 5px'} borderRadius={15} width="50px" marginLeft={'18px'} marginTop={'-28px'}/>)
@@ -70,7 +75,7 @@ const JobPostingCard: React.FC<Props> = ({theData}) => {
                 </Text>
 
                 <Link to={`/${theData.Company_ID}/posting`}>
-                <Text fontFamily={'Kumbh Sans, sans-serif'} fontWeight={600} fontSize={20} color={'#19202D'} py={1}>
+                <Text fontFamily={'Kumbh Sans, sans-serif'} fontWeight={600} fontSize={20} color={headingColor} py={1}>
                     {theData.Position}
                 </Text>
                 </Link> 

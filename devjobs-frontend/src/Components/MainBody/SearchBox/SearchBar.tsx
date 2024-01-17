@@ -1,4 +1,4 @@
-import { Container, Stack, InputGroup, Input, Checkbox, Button } from '@chakra-ui/react'
+import { Container, Stack, InputGroup, Input, Checkbox, useColorModeValue } from '@chakra-ui/react'
 import SearchIcon from '../../../assets/icon-search.svg'
 import LocationIcon from '../../../assets/icon-location.svg'
 
@@ -22,6 +22,10 @@ const SearchBar: React.FC<SearchBarProps> = ({setFilterTitle, setFilterLocation,
     const filterPositionChanges = (e: React.ChangeEvent<HTMLInputElement>) => {
         setFilterPosition(e.target.checked)
     }
+
+    const backgroundColor = useColorModeValue('white', '#19202D');
+    const fullTimeColor = useColorModeValue('black', 'white');
+    const searchBarPlaceholderColor = useColorModeValue('rgba(25, 32, 45, 0.5)','rgba(255, 255, 255, 0.5)')
     
     return(
         <div>
@@ -31,9 +35,9 @@ const SearchBar: React.FC<SearchBarProps> = ({setFilterTitle, setFilterLocation,
                         <Input bgSize={'24px 24px'} bgImage={SearchIcon} bgPosition={'35px 28px'} 
                             padding={'37px 72px'} bgRepeat='no-repeat'
                             placeholder='Filter by title, companies, expertise...'
-                            _placeholder={{opacity: 0.6}}
+                            _placeholder={{color: searchBarPlaceholderColor}}
                             width={550}
-                            bgColor={'white'}
+                            bgColor={backgroundColor}
                             fontFamily={'Kumbh Sans, sans-serif'}
                             fontSize={14}
                             borderLeftRadius={6}
@@ -45,9 +49,9 @@ const SearchBar: React.FC<SearchBarProps> = ({setFilterTitle, setFilterLocation,
                         <Input bgSize={'17px 24px'} bgImage={LocationIcon} bgPosition={'35px 28px'} 
                             padding={'37px 72px'} bgRepeat='no-repeat'
                             placeholder='Filter by location...'
-                            _placeholder={{opacity: 0.6}}
+                            _placeholder={{color: searchBarPlaceholderColor}}
                             width={450}
-                            bgColor={'white'}
+                            bgColor={backgroundColor}
                             fontFamily={'Kumbh Sans, sans-serif'}
                             fontSize={14}
                             borderLeftRadius={0}
@@ -58,13 +62,13 @@ const SearchBar: React.FC<SearchBarProps> = ({setFilterTitle, setFilterLocation,
                             onChange={filterLocationChanges}
                             />
                         <Checkbox 
-                            backgroundColor={'white'}
+                            backgroundColor={backgroundColor}
                             width={400}
                             paddingLeft={'30'}
                             borderLeftRadius={0}
                             height={75}
                             fontFamily={'Kumbh Sans, sans-serif'}
-                            color={'#19202D'}
+                            color={fullTimeColor}
                             fontWeight={600}
                             cursor={'pointer'}
                             onChange={filterPositionChanges}>

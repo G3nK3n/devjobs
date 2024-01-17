@@ -1,14 +1,17 @@
+
 import './App.css'
 import Layout from './Components/Layout'
 import {BrowserRouter as Router } from 'react-router-dom';
+
+
 function App() {
 
   return (
     <>
       <Router>
-        <div>
-          <Layout />
-        </div>
+          <div>
+            <Layout />
+          </div>
       </Router>
     </>
   )

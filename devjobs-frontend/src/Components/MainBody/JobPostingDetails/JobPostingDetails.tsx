@@ -25,6 +25,8 @@ import PomodoroLogo from '../../../logos/pomodoro.svg'
 import TypemasterLogo from '../../../logos/typemaster.svg'
 import VectorLogo from '../../../logos/vector.svg'
 
+import { useColorModeValue } from "@chakra-ui/react"
+
 //If params is equal to the database data, then show specific data
 //Make a getRequest in thisd page and make a filter according to the parameters, which includes the companyID
 const JobPostingDetails = () => {
@@ -32,6 +34,9 @@ const JobPostingDetails = () => {
     const url = "http://localhost:5000/";
     const [data, setData] = useState([]);
     let {companyID} = useParams();
+    const textColor = useColorModeValue('#6E8098', '#9DAEC2');
+    const companySiteButtonColor = useColorModeValue('rgb(89, 100, 224, 0.1)', 'rgb(255, 255, 255, 0.1)')
+    const companySiteTextColor = useColorModeValue('#5964E0', 'white')
 
     const getRequest = async () => {
         try {
@@ -114,7 +119,7 @@ const JobPostingDetails = () => {
                     <Stack>
                         <CardBody ml='20px' mt='18px'>
                             <Heading fontFamily={'Kumbh Sans, sans-serif'} fontSize={24} size='md'>{filteredData(data)?.Company_Name}</Heading>
-                            <Text fontSize={16} fontFamily={'Manrope, sans-serif'} color={'#6E8098'} py={2}>
+                            <Text fontSize={16} fontFamily={'Manrope, sans-serif'} color={textColor} py={2}>
                                 {filteredData(data)?.Job_Link.split("/")[1] + '.com'} 
                             </Text>
                         </CardBody>
@@ -124,8 +129,8 @@ const JobPostingDetails = () => {
                         <Box position={'absolute'} right={'63px'} top={'50px'}> 
                             <Button
                                 marginLeft={30}
-                                bgColor={'rgb(89, 100, 224, 0.1)'}
-                                color={'rgb(89, 100, 224)'}
+                                bgColor={companySiteButtonColor}
+                                color={companySiteTextColor}
                                 fontSize={14}
                                 fontWeight={600}
                                 fontFamily={'Kumbh Sans, sans-serif'}
@@ -163,18 +168,18 @@ const JobPostingDetails = () => {
                         </Button>
                     </Box>
                     <CardBody>
-                        <Text fontSize={16} fontFamily={'Manrope, sans-serif'} color={'#6E8098'} py={2} mt={'40px'}>
+                        <Text fontSize={16} fontFamily={'Manrope, sans-serif'} color={textColor} py={2} mt={'40px'}>
                             {filteredData(data)?.Job_Description}
                         </Text>
                         <Heading mt={'40px'} fontFamily={'Kumbh Sans, sans-serif'} fontSize={20} size='sm'>Requirements</Heading>
-                        <Text fontSize={16} fontFamily={'Manrope, sans-serif'} color={'#6E8098'} py={2} mt={'20px'}>
+                        <Text fontSize={16} fontFamily={'Manrope, sans-serif'} color={textColor} py={2} mt={'20px'}>
                             {filteredData(data)?.Requirement_Content}
                         </Text>
                         <UnorderedList mt={'20px'}>
                         {
                             filteredData(data)?.RequirementList.split(".").filter((x: any) => x).map((items: any) => {
                                 return(
-                                    <ListItem fontSize={15} fontFamily={'Manrope, sans-serif'} color={'#6E8098'} py={2} mt={'10px'}>
+                                    <ListItem fontSize={15} fontFamily={'Manrope, sans-serif'} color={textColor} py={2} mt={'10px'}>
                                         {items}
                                     </ListItem>
                                 )
@@ -182,14 +187,14 @@ const JobPostingDetails = () => {
                         }
                         </UnorderedList>
                         <Heading mt={'40px'} fontFamily={'Kumbh Sans, sans-serif'} fontSize={20} size='sm'>What You Will Do</Heading>
-                        <Text fontSize={16} fontFamily={'Manrope, sans-serif'} color={'#6E8098'} py={2} mt={'20px'}>
+                        <Text fontSize={16} fontFamily={'Manrope, sans-serif'} color={textColor} py={2} mt={'20px'}>
                             {filteredData(data)?.Roles_Content}
                         </Text>
                         <OrderedList mt={'20px'}>
                         {
                             filteredData(data)?.RolesList.split(".").filter((x: any) => x).map((items: any) => {
                                 return(
-                                    <ListItem fontSize={15} fontFamily={'Manrope, sans-serif'} color={'#6E8098'} py={2} mt={'10px'}>
+                                    <ListItem fontSize={15} fontFamily={'Manrope, sans-serif'} color={textColor} py={2} mt={'10px'}>
                                         {items}
                                     </ListItem>
                                 )
